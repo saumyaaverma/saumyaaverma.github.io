@@ -1,11 +1,51 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-        <title>
-            My Website
-        </title>
+        <meta charset="utf-8">        
+        <meta name="viewport" content="width = device-width, initial-scale = 1">
+        <title>Paint</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            body {
+                background-color:lightblue;
+                padding: 15px;
+                font-family: "Lucida courier", Courier, monospace;
+                font-size: 20px;
+                font-weight: bold;
+                color: black;
+            }
+        </style>
     </head>
+
     <body>
-        <h1> Welcome </h1>
+        <!-- header containing the commands-->
+        <nav class="navbar fixed-top navbar-light navbar-expand-sm" style= "background-color: lightblue;">
+            <a href= "#" class= "navbar-brand"><label for="colorWell">Pen Colour</label><input type ="color" id = "colorWell" onchange="change_colour(this)"></a>
+            <ul class= "navbar-nav ml-auto">
+                 <li class= "nav-item">
+                    <a href= "index.html" class="nav-link">Clear</a>
+                </li>
+                <li class= "nav-item">
+                    <a href="#" class="nav-link" onclick="Download(this, document.getElementById('my-canvas'), 'canvas.png')">Download</a>
+                </li>
+                <li class= "nav-item">
+                    <a href= "#" class="nav-link"><input type="file" id="upload" hidden/><label for="upload">Upload</label></a>
+                </li>
+                <li class= "nav-item">
+                    <a href= "#" class="nav-link" id="eraser" onclick="draw('eraser')">Eraser</a>
+                </li>
+            </ul>
+        </nav>
+        <!--loading the canvas-->
+        <canvas id="my-canvas" width="600" height="600" onmouseover="draw()"></canvas>
+        <!-- pen size in the footer-->
+        <div class= penSize>
+            <label for="customRange1" class="form-label">Pen Size</label>
+            <input type="range" min ="2" max="100" onchange="change_size(this)" class="form-range" id="customRange1">
+        </div>
+        <!--loading the js script-->
+        <script src="paint-app.js"></script>        
     </body>
 </html>

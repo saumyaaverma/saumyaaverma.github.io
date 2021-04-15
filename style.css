@@ -1,0 +1,17 @@
+#my-canvas {
+    border: 10px solid lightblue;
+    padding: 0;
+    margin: auto;
+    display: flex;
+} 
+
+.nav-link:hover{
+    background-color:darkcyan;
+}
+
+.penSize{
+    text-align: center;
+    font-size: 25px;
+    bottom:0;
+    width:100%
+}
