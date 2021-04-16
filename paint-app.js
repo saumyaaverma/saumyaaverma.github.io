@@ -8,6 +8,7 @@ context.beginPath();
 context.rect(0, 0, canvas.width, canvas.height);
 context.fillStyle = "white";
 context.fill();
+
 //function to draw
 function draw(counter){
     //event activated when mouse down
@@ -17,8 +18,10 @@ function draw(counter){
         //mouse is moving, draw
         $("#my-canvas").mousemove(function(e){
             //use lineTo to traverse the coordinates
-            //e.pageX and e.pageY give horizontal and vertical components of point
-            context.lineTo(e.pageX,e.pageY);
+            let rect = canvas.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
+            context.lineTo(x,y);
             if(counter == 'eraser')
             {
                 context.strokeStyle ='white';
